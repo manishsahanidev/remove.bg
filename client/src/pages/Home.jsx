@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import { HowToSteps } from "../components/HowToSteps";
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <Header />
 
       {/* Steps Section */}
+      <HowToSteps/>
 
       {/* Slider Section */}
 
