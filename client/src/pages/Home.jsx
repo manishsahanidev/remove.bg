@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import { HowToSteps } from "../components/HowToSteps";
+import Pricing from "../components/Pricing";
 import Slider from "../components/Slider";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Slider/>
 
       {/* Pricing Section */}
+      <Pricing/>
 
       {/* Testimonials Section */}
 
