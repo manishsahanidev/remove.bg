@@ -57,3 +57,24 @@ export const plans = [
     popular: false
   },
 ];
+
+export const testimonials = [
+  {
+    id: 1,
+    quote: "This service is amazing! The AI background removal is so accurate and fast.",
+    author: "Abhimanyu Vishwakarma",
+    handle: "@abhimanyu",
+  },
+  {
+    id: 2,
+    quote: "I love how easy it is to use. I can remove backgrounds in seconds!",
+    author: "Sumit Vishwakarma",
+    handle: "@sumit",
+  },
+  {
+    id: 3,
+    quote: "The AI does a great job. Highly recommend! I use it for all my product photos.",
+    author: "Aditiya Singh",
+    handle: "@aditiya",
+  }
+];

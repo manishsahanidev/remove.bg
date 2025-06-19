@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import { HowToSteps } from "../components/HowToSteps";
 import Pricing from "../components/Pricing";
 import Slider from "../components/Slider";
+import Testimonial from "../components/Testimonial";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Pricing/>
 
       {/* Testimonials Section */}
+      <Testimonial/>
 
       {/* TryNow Section */}
     </div>
