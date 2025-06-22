@@ -3,6 +3,7 @@ import { HowToSteps } from "../components/HowToSteps";
 import Pricing from "../components/Pricing";
 import Slider from "../components/Slider";
 import Testimonial from "../components/Testimonial";
+import TryNow from "../components/TryNow";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <Testimonial/>
 
       {/* TryNow Section */}
+      <TryNow/>
     </div>
   );
 }
