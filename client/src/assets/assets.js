@@ -78,3 +78,22 @@ export const testimonials = [
     handle: "@aditiya",
   }
 ];
+
+export const FOOTER_CONSTANT = [
+  {
+    url: "https://facebook.com",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+  },
+  {
+    url: "https://instagram.com",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+  },
+  {
+    url: "https://twitter.com",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/260px-X_logo_2023.svg.png"
+  },
+  {
+    url: "https://linkedin.com",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+  }
+];
