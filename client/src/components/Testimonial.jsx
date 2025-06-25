@@ -25,7 +25,7 @@ const Testimonial = () => {
               >
                 <path
                   d="M.036 3A3.504 3.504 0 0 1 4 .036v2.049A1.506 1.506 0 0 0 2.085 3H6v6H0V3h.036zm15.928 7H16v6h-6v-6h3.915A1.496 1.496 0 0 0 12 9.086v-2.05A3.504 3.504 0 0 1 15.964 10zM14 12h-2v2h2v-2zM2 5v2h2V5H2z"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 />
               </svg>
               <p className="text-gray-700 m-0" style={{ hyphens: "auto" }}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Menubar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export const Menubar = () => {
   return (
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 px-6 md:px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-sm">
       {/* Left side: logo + text */}
-      <div className="flex items-center space-x-3">
+      <Link to="/" className="flex items-center space-x-3">
         <div className="p-1 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
           <img
             src={assets.logo}
@@ -31,7 +32,7 @@ export const Menubar = () => {
         <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 bg-clip-text text-transparent cursor-pointer">
           Remove.<span className="text-gray-400 cursor-pointer">bg</span>
         </span>
-      </div>
+      </Link>
 
       {/* Right side: desktop menu */}
       <div className="hidden md:flex items-center space-x-6">
