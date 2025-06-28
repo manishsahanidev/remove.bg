@@ -2,9 +2,22 @@ import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SignedIn, SignedOut, useClerk, UserButton, useUser } from "@clerk/clerk-react";
 
 export const Menubar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openSignIn, openSignUp } = useClerk();
+  const { user } = useUser();
+
+  const handleRegister = () => {
+    setMenuOpen(false); 
+    openSignUp({});
+  };
+
+  const handleLogin = () => {
+    setMenuOpen(false);
+    openSignIn({});
+  };
 
   // close menu on outside click
   useEffect(() => {
@@ -36,12 +49,32 @@ export const Menubar = () => {
 
       {/* Right side: desktop menu */}
       <div className="hidden md:flex items-center space-x-6">
-        <button className="text-gray-600 hover:text-indigo-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-gray-50">
-          Login
-        </button>
-        <button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-          Get Started
-        </button>
+        <SignedOut>
+          <button
+            className="text-gray-600 hover:text-indigo-600 font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-gray-50"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+          <button
+            className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            onClick={handleRegister} 
+          >
+            Get Started
+          </button>
+        </SignedOut>
+        <SignedIn>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button className="flex items-center gap-2 bg-blue-100 px-4 sm:px-5 py-1.5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
+              <img src={assets.credits} alt="Credits" className="w-4 h-4" />
+              <span className="text-xs sm:text-sm font-medium text-gray-700">
+                Credits: <span className="text-indigo-600">0</span>
+              </span>
+            </button>
+            <p className="text-gray-600 max-sm:hidden">Hi, {user?.fullName}</p>
+          </div>
+          <UserButton />
+        </SignedIn>
       </div>
 
       {/* Mobile menu button (Hamburger) */}
@@ -60,13 +93,33 @@ export const Menubar = () => {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="absolute top-14 right-0 bg-white shadow-xl rounded-2xl border border-gray-100 flex flex-col w-52 p-3 animate-in slide-in-from-top-2 duration-200 backdrop-blur-sm">
-            <button className="text-gray-600 hover:text-indigo-600 hover:bg-gray-50 font-medium p-3 rounded-xl transition-all duration-200 text-center">
-              Login
-            </button>
-            <div className="h-px bg-gray-100 my-1"></div>
-            <button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-4 py-3 rounded-xl font-medium transition-all duration-200 mt-2">
-              Sign Up
-            </button>
+            <SignedOut>
+              <button
+                onClick={handleLogin}
+                className="text-gray-600 hover:text-indigo-600 hover:bg-gray-50 font-medium p-3 rounded-xl transition-all duration-200 text-center"
+              >
+                Login
+              </button>
+              <div className="h-px bg-gray-100 my-1"></div>
+              <button
+                onClick={handleRegister}
+                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-4 py-3 rounded-xl font-medium transition-all duration-200 mt-2"
+              >
+                Sign Up
+              </button>
+            </SignedOut>
+            <SignedIn>
+              <div className="flex items-center gap-2 sm:gap-3 py-2">
+                <button className="flex items-center gap-2 bg-blue-100 px-4 sm:py-2.5 py-1.5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
+                  <img src={assets.credits} alt="Credits" className="w-4 h-4" />
+                  <span className="text-xs sm:text-sm font-medium text-gray-700">
+                    Credits: <span className="text-indigo-600">0</span>
+                  </span>
+                </button>
+
+              </div>
+              <UserButton />
+            </SignedIn>
           </div>
         )}
       </div>
